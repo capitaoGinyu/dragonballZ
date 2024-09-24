@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <style>
+        #principal {
+            position: absolute;
+            height: 200px;
+            clip:rect(0 200px 200px 0);
+        }
+        #janela{
+            position: relative;
+            height: 200px;
+            top:0;left:0;
+            white-space: nowrap;
+        }
+        #janela img {float: left;}
+        #info {position: absolute;top:200px}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        var limite;
+            function moverFotos(){
+                $('#janela').animate({left:"-=200"},1000,function(e){
+                    $('#info').html($('#janela').position().left);
+
+            if($('#janela').position().left == limite){
+                $('#janela').css('left',0);
+            }
+            });
+            }
+            $(function(e){
+                limite = $('#janela img').length * $('#janela img').width() * -1;
+
+            setInterval(moverFotos, 2000);
+            });
+    </script>
+</head>
+<body>
+    <div id="principal">
+        <div id="janela">
+            <img src="VEGETA.webp" width="200" height="200">
+            <img src="vegeta mais foda que o patrick.png" width="200" height="200">
+            <img src="oozaru.png" width="200" height="200">
+            <img src="yutyrannus top1.png" width="200" height="200">
+            <img src="cooler irmao do freeza.webp" width="200" height="200">
+
+
+            
+
+        </div>
+    </div>
+</body>
+</html>
